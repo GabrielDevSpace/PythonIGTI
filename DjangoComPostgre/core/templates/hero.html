@@ -20,7 +20,18 @@
           </div>
         </div>
       </div>
+  <div class="container">
+  {% if messages %} <!-- Estamos verificando se existe menssagens -->
+    {% for m in messages %}
+      <!-- {{ message.tags }} aqui ira nos informar qual o tipo de mensagem sucesso error-->
+        <div class="alert alert-{{ m.tags }}">
+          <button type="button" class="close" data-dismiss="alert"></button>
+          <strong>{{ m }}</strong>
+        </div>
+    {% endfor %}
+  {% endif %}
+  </div>
 
-    </header>
+</header>
     <!-- Header Area wrapper End -->
 

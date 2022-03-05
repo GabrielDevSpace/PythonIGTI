@@ -27,12 +27,34 @@ class Servico(Base):
     servico = models.CharField('Serviço', max_length=100)
     descricao = models.TextField('Descrição', max_length=200)
     icone = models.CharField('Icones', max_length=12, choices=ICONE_CHOICES)
+
     class Meta:
          verbose_name = 'Serviço'
          verbose_name_plural = 'Serviços'
 
     def __str__(self):
         return self.servico
+
+class Feature(Base):
+    ICONE_CHOICES = (
+        ('lni-cog', 'Engrenagem'),
+        ('lni-stats-up', 'Grafico'),
+        ('lni-layers', 'Paginas'),
+        ('lni-leaf', 'Folhas'),
+        ('lni-laptop-phone', 'Dispositivos'),
+        ('lni-rocket', 'Foguete'),
+    )
+    titulo = models.CharField('Titulo', max_length=100)
+    descricao = models.TextField('Descricao', max_length=150)
+    icone = models.CharField('Icones', max_length=18, choices=ICONE_CHOICES)
+
+    class Meta:
+        verbose_name = 'Feature'
+        verbose_name_plural = 'Features'
+
+    def __str__(self):
+        return self.titulo
+
 
 class Cargo(Base):
     cargo = models.CharField('Cargo', max_length=100)
@@ -43,6 +65,8 @@ class Cargo(Base):
 
     def __str__(self):
         return self.cargo
+
+
 
 class Funcionario(Base):
     nome = models.CharField('Nome', max_length=100)
